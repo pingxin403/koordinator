@@ -152,9 +152,6 @@ func TestInternalRegistryGathersAllInternalMetrics(t *testing.T) {
 	// table above, since no metric is added or removed by a migration.
 	internalCollectorSlices := [][]prometheus.Collector{
 		CommonCollectors,
-		CPUSuppressCollector,
-		CPUBurstCollector,
-		CPUSetCollector,
 		PredictionCollectors,
 		CoreSchedCollector,
 		NodeMetricCollectors,
@@ -167,6 +164,9 @@ func TestInternalRegistryGathersAllInternalMetrics(t *testing.T) {
 	}
 	internalRegisterableSlices := [][]k8smetrics.Registerable{
 		CommonRegisterableCollectors,
+		CPUSuppressRegisterableCollectors,
+		CPUBurstRegisterableCollectors,
+		CPUSetRegisterableCollectors,
 	}
 
 	registered := 0
